@@ -4,7 +4,7 @@
   "description": "A Raid Finder & Filler Tool for WoW Classic.",
   "main": "src/index.js",
   "repository": "https://github.com/biczak/Grobb.GG",
-  "author": "Alex Biczak <alex@biczak.dev>",
+  "author": "Alex Biczak <25611530+biczak@users.noreply.github.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
