@@ -1,0 +1,56 @@
+{
+  "name": "grobb-gg-backend",
+  "version": "0.1.0",
+  "description": "A Raid Finder & Filler Tool for WoW Classic.",
+  "main": "src/index.js",
+  "repository": "https://github.com/biczak/Grobb.GG",
+  "author": "Alex Biczak <alex@biczak.dev>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "yarn prod",
+    "build": "npm-run-all clean transpile",
+    "server": "node ./dist-server/bin/www",
+    "dev": "set NODE_ENV=development && npm-run-all build server",
+    "prod": "set NODE_ENV=production && npm-run-all build server",
+    "transpile": "babel ../backend -d ./dist-server -s --ignore node_modules/**/*.js",
+    "clean": "rimraf dist-server",
+    "watch:dev": "nodemon",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "exec": "yarn dev",
+    "watch": [
+      "../backend/*",
+      "../frontend/public/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  }
+}
